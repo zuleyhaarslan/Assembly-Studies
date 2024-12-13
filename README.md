@@ -1,1 +1,1 @@
-The codes include simple addition, subtraction, multiplication and division operations as well as array operations and printing simple shapes on the screen.
+The codes include simple addition, subtraction, multiplication and division operations as well as array operations and printing simple shapes on the screen. All of the files are written in x86 and can be compiled with emu8086 or MASM.
