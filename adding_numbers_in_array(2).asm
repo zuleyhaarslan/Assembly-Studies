@@ -1,0 +1,24 @@
+.model small
+
+.data
+ARR DB 10, 20, 30, 40, 50
+SUM DW ?
+
+.code
+.STARTUP
+MOV SUM, 0
+MOV BX, 0
+
+MOV BL, ARR
+ADD SUM, BX
+MOV BL, ARR+1
+ADC SUM, BX
+MOV BL, ARR+2
+ADC SUM, BX
+MOV BL, ARR+3
+ADC SUM, BX
+MOV BL, ARR+4
+ADC SUM, BX
+
+.exit
+end
