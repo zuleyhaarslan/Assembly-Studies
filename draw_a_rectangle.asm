@@ -1,7 +1,7 @@
 .model small
 
 .data
-sentence DB 'Press a key...','&'
+sentence DB 'Press a key...','$'
 rwidth equ 70
 rheight equ 40
 color equ 9
