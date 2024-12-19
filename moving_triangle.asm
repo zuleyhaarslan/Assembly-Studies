@@ -20,6 +20,21 @@ MOV BP, X3
 
 main:
 
+; Check for key press
+CALL key_check
+CMP AL, 00h
+JE continue_main ; Continue main loop if no key is pressed
+
+; Exit the program if a key is pressed
+MOV AH, 00h
+INT 16h          ; Wait for keypress to clear buffer
+MOV AH, 00h
+MOV AL, 03h
+INT 10h          ; Reset video mode
+RET
+
+continue_main:
+
 ;-----green triangle---
 ;-------first line-----
 
@@ -349,6 +364,18 @@ black PROC
     INT 10h
     RET
 black ENDP
+
+key_check PROC
+    MOV AH, 01h    ; Check for key press
+    INT 16h
+    JZ no_key      ; If no key pressed, jump to no_key
+    MOV AL, 01h    ; Return AL = 1 if key is pressed
+    RET
+
+no_key:
+    XOR AL, AL     ; Return AL = 0 if no key is pressed
+    RET
+key_check ENDP
 
 MOV AX, @data
 MOV DS, AX
